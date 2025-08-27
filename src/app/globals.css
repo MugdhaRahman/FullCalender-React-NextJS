@@ -13,38 +13,8 @@
     --border: #bfbfbf;
     --light-blue: #acd7f8;
 
-    --fc-small-font-size: .85em;
-    --fc-page-bg-color: var(--background);
-    --fc-neutral-bg-color: rgba(208, 208, 208, 0.3);
-    --fc-neutral-text-color: #808080;
-    --fc-border-color: var(--border);
-
-    --fc-button-text-color: #fff;
-    --fc-button-bg-color: var(--primary);
-    --fc-button-border-color: transparent;
-    --fc-button-hover-bg-color: var(--secondary);
-    --fc-button-hover-border-color: #1a252f;
-    --fc-button-active-bg-color: var(--secondary);
-    --fc-button-active-border-color: transparent;
-
-    --fc-event-bg-color: var(--primary);
-    --fc-event-border-color: var(--border);
-    --fc-event-text-color: #fff;
-    --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
-
-    --fc-more-link-bg-color: #d0d0d0;
-    --fc-more-link-text-color: inherit;
-
-    --fc-event-resizer-thickness: 8px;
-    --fc-event-resizer-dot-total-width: 8px;
-    --fc-event-resizer-dot-border-width: 1px;
-
-    --fc-non-business-color: rgba(215, 215, 215, 0.3);
-    --fc-bg-event-color: rgb(143, 223, 130) !important;
-    --fc-bg-event-opacity: 0.3;
-    --fc-highlight-color: rgba(188, 232, 241, 0.3);
-    --fc-today-bg-color: var(--info);
-    --fc-now-indicator-color: red;
+    --text-header: 16px;
+    /*--fc-border-color: var(--secondary) !important;*/
 
 }
 
@@ -72,42 +42,123 @@ body {
     color: var(--foreground);
 }
 
+/* Customize the entire calendar background */
+.fc {
+    background-color: var(--background); /* Light background for the entire calendar */
+    border-color: var(--primary) !important;
+}
+
+
+/*.fc-scrollgrid-section > td {*/
+/*    border-radius: 0px 0px 10px 10px !important;*/
+/*}*/
+
+
+
+.fc-scrollgrid-section > th {
+    border: 1px solid var(--secondary) !important;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+/*.fc-scrollgrid {*/
+/*    border-radius: 10px !important;*/
+/*}*/
+
+/* Customize the day header */
+.fc .fc-col-header-cell {
+    background-color: var(--background); /* Blue background */
+    color: var(--secondary); /* White text color */
+    border-radius: 0 10px 10px 0;
+    font-weight: bold;
+    font-size: var(--text-header);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style for individual day cells */
+.fc .fc-daygrid-day {
+    background-color: #ffffff; /* White background for each day cell */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Hover effect for day cells */
+.fc .fc-daygrid-day:hover {
+    background-color: #dbeafe; /* Light blue background on hover */
+    cursor: pointer;
+}
+
+/* Today’s day styling */
+.fc .fc-day-today {
+    background-color: #eff6ff; /* Light blue background for today's date */
+    font-weight: bold;
+}
+
+/* Customize event background color */
+.fc .fc-event {
+    background-color: #10b981; /* Green background for events */
+    color: white; /* White text for event title */
+    border-radius: 4px;
+    padding: 5px 5px;
+    font-size: 0.875rem;
+}
+
+/* Event title font size */
+.fc .fc-event-title {
+    font-size: 0.875rem; /* Smaller font size for event titles */
+    font-weight: 500;
+}
+
+/* Event border color */
+.fc .fc-event {
+    border: 1px solid #6ee7b7; /* Border color */
+}
+
+/* Weekends (Saturday and Sunday) */
+.fc .fc-day-sun, .fc .fc-day-sat {
+    background-color: #fff5e9;
+}
+
+/* Event hover effect */
+.fc .fc-event:hover {
+    background-color: #34d399; /* Darker green on hover */
+    cursor: pointer;
+}
+
+/* Custom styling for FullCalendar header toolbar */
 .fc-toolbar.fc-header-toolbar {
-    background-color: var(--light-blue);
-    color: var(--secondary);
-    padding: 8px;
+    background-color: #f1f5f9; /* Light gray background for the header */
+    color: var(--secondary); /* Dark text for the header */
+    padding: 10px;
     border-radius: 8px;
 }
 
-.fc-toolbar-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-
+/* Today button style */
+.fc .fc-button.fc-button-today {
+    background-color: #3b82f6; /* Blue button for "Today" */
+    color: white;
+    font-weight: bold;
 }
 
-.fc .fc-button {
-    border-radius: 6px;
+.fc .fc-button.fc-button {
+    background-color: var(--color--primary) ; /* Blue button for "Today" */
+    color: white;
+    font-weight: bold;
+}
+
+/* Customize navigation buttons (previous, next) */
+.fc .fc-button-prev, .fc .fc-button-next {
+    background-color: #e5e7eb; /* Light gray background for prev/next buttons */
+    color: #333; /* Dark text */
+    font-weight: bold;
+    border-radius: 8px;
     padding: 6px 12px;
 }
 
-/* Week/Day name row */
-.fc-col-header-cell {
-    background-color: #f1f5f9;
-    color: #334155;
-    font-weight: 500;
-    text-transform: uppercase;
-    padding: 6px;
-    border: 1px solid;
-    border-color: var(--border);
-    border-radius: 14px;
-}
-
-/* Time axis in timeGrid view */
-.fc-timegrid-axis {
-    background-color: var(--background);
-    font-size: 0.875rem;
-    color: #64748b;
-    border-radius: 14px;
+.fc-scrollgrid {
+    border-radius: 10px; /* Adjust as needed */
 }
 
 .truncate {
